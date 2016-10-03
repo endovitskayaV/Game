@@ -39,7 +39,9 @@ namespace Game
 
         private void Tb_Mouse_Click(object sender, MouseEventArgs e)
         {
-
+            int i = 0;
+            if (i>0) ;
+            else;
         }
     }
 
