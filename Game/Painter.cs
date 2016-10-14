@@ -9,8 +9,10 @@ namespace Game
 {
     class Painter
     {
-        public void Money()
-        { }
+        public static void Money(Graphics g)
+        {
+            g.DrawImage(Image.FromFile("money.png"), new Rectangle(new Point(220, 8), new Size(18, 18)));
+        }
 
         public void Animal(string name)
         { }

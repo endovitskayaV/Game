@@ -35,5 +35,15 @@ namespace Game
             ShopForm form = new ShopForm();
             form.ShowDialog();
         }
+
+        private void Mouse_Move(object sender, MouseEventArgs e)
+        {
+            this.Text = " " + e.X + " " + e.Y;
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            Painter.Money(e.Graphics);
+        }
     }
 }
