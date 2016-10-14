@@ -29,11 +29,11 @@ namespace Game
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void Shop_Btn_Click(object sender, EventArgs e)
         {
-            Shop form = new Shop();
+            ShopForm form = new ShopForm();
             form.ShowDialog();
-           // WildAnimal wa = new WildAnimal(WildAnimal.Names.bear);
         }
     }
 }
