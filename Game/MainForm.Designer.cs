@@ -45,7 +45,7 @@
             // moneyShow_Lbl
             // 
             this.moneyShow_Lbl.AutoSize = true;
-            this.moneyShow_Lbl.Location = new System.Drawing.Point(203, 9);
+            this.moneyShow_Lbl.Location = new System.Drawing.Point(76, 9);
             this.moneyShow_Lbl.Name = "moneyShow_Lbl";
             this.moneyShow_Lbl.Size = new System.Drawing.Size(13, 13);
             this.moneyShow_Lbl.TabIndex = 1;

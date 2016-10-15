@@ -38,12 +38,13 @@ namespace Game
 
         private void Mouse_Move(object sender, MouseEventArgs e)
         {
-            this.Text = " " + e.X + " " + e.Y;
+           this.Text = " " + e.X + " " + e.Y;
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            Painter.Money(e.Graphics);
+            Painter.Money(e.Graphics, moneyShow_Lbl.Location.X, moneyShow_Lbl.Location.Y-3, moneyShow_Lbl.Width,1);
+            moneyShow_Lbl.Text = GameValues.Money.ToString();
         }
     }
 }

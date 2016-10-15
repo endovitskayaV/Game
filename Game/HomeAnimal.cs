@@ -9,7 +9,7 @@ namespace Game
     public class HomeAnimal : Animal
     {
         public enum Names { rabit, duck, pig, cock, hen };
-        public Dictionary<Names, int> energyCanEat = new Dictionary<Names, int>()
+        public Dictionary<Names, int> energyWeight = new Dictionary<Names, int>()
         {
             {Names.rabit, 26},
             {Names.duck,7},
@@ -25,6 +25,12 @@ namespace Game
         public bool Hungry { get; set; }
         public string Name { get; set; }
         public int energyValue { get; set; }
+
+        public HomeAnimal(Names name)
+        {
+            Name = name.ToString();
+            energyValue = energyWeight[name];
+        }
 
 
     }
