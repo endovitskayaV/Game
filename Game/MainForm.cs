@@ -12,7 +12,7 @@ namespace Game
 {
     public partial class MainForm : Form
     {
-        private Timer timer;
+        private static Timer timer;
         private Random random;
         private int tickCount;
         List<WildAnimal> wildAnimalsInGame;
@@ -101,9 +101,9 @@ namespace Game
             this.Refresh();
         }
 
-
         private void Shop_Btn_Click(object sender, EventArgs e)
         {
+            timer.Stop();
             ShopForm form = new ShopForm();
             form.ShowDialog();
         }
@@ -135,6 +135,10 @@ namespace Game
 
         }
 
+        public static void TimerStart()
+        {
+            timer.Start();
+        }
         
     }
 }

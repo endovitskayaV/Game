@@ -218,6 +218,7 @@ namespace Game
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ShopForm";
             this.Text = "Shop";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ShopForm_FormClosed);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ShopForm_Paint);
             this.traps_Panel.ResumeLayout(false);
             this.traps_Panel.PerformLayout();
@@ -283,6 +284,11 @@ namespace Game
             }
 
             else MessageBox.Show("You have not enough money!");
+        }
+
+        private void ShopForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm.TimerStart();
         }
     }
 
