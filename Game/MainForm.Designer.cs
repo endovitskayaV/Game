@@ -30,6 +30,7 @@
         {
             this.Shop_Btn = new System.Windows.Forms.Button();
             this.moneyShow_Lbl = new System.Windows.Forms.Label();
+            this.byuings_Panel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // Shop_Btn
@@ -51,11 +52,19 @@
             this.moneyShow_Lbl.TabIndex = 1;
             this.moneyShow_Lbl.Text = "0";
             // 
+            // byuings_Panel
+            // 
+            this.byuings_Panel.Location = new System.Drawing.Point(12, 33);
+            this.byuings_Panel.Name = "byuings_Panel";
+            this.byuings_Panel.Size = new System.Drawing.Size(108, 278);
+            this.byuings_Panel.TabIndex = 2;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 323);
+            this.ClientSize = new System.Drawing.Size(482, 323);
+            this.Controls.Add(this.byuings_Panel);
             this.Controls.Add(this.moneyShow_Lbl);
             this.Controls.Add(this.Shop_Btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -71,6 +80,7 @@
 
         private System.Windows.Forms.Button Shop_Btn;
         private System.Windows.Forms.Label moneyShow_Lbl;
+        private System.Windows.Forms.Panel byuings_Panel;
     }
 }
 

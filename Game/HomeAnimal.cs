@@ -6,30 +6,87 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class HomeAnimal : Animal
+    public class HomeAnimal 
     {
+        //fields
         public enum Names { rabit, duck, pig, cock, hen };
-        public Dictionary<Names, int> energyWeight = new Dictionary<Names, int>()
+        private Dictionary<Names, int> energyWeight = new Dictionary<Names, int>()
         {
-            {Names.rabit, 26},
-            {Names.duck,7},
-            {Names.pig, 13},
-            {Names.cock,5},
-            {Names.hen, 1}
+            {Names.rabit, 28},
+            {Names.duck,8},
+            {Names.pig, 14},
+            {Names.cock, 4},
+            {Names.hen, 2}
         };
 
+        private Dictionary<Names, int> price = new Dictionary<Names, int>()
+        {
+            {Names.rabit, 28},
+            {Names.duck,8},
+            {Names.pig, 14},
+            {Names.cock, 4},
+            {Names.hen, 2}
+        };
         public enum LifeStages {baby, teen, adult};
+        private LifeStages lifeStage;
+        private Names name;
+        private bool alive;
+        private int energyValue;
+       
 
-        public LifeStages LifeStage { get; set; }
-        public bool Alive { get; set; }
-        public bool Hungry { get; set; }
-        public string Name { get; set; }
-        public int energyValue { get; set; }
+        //properties
+        public LifeStages LifeStage
+        {
+            get
+            {
+                return lifeStage;
+            }
+            set
+            {
+                lifeStage = value;
+            }
+        }
+        public Names Name
+        {
+            get
+            {
+                return name;
+            }
 
+            set
+            {
+                name = value;
+            }
+
+        }
+        public bool Alive
+        {
+            get
+            {
+                return alive;
+            }
+            set
+            {
+                alive = value;
+            }
+        }
+        public int EnergyValue { get; set; }
+        public int Price
+        {
+            get
+            {
+                return price[name];
+            }
+        }
+        
+
+        //конструктор
         public HomeAnimal(Names name)
         {
-            Name = name.ToString();
+            this.name = name;
             energyValue = energyWeight[name];
+            lifeStage =LifeStages.baby;
+            alive = true;
         }
 
 

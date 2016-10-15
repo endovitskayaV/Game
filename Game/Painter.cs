@@ -9,16 +9,27 @@ namespace Game
 {
     class Painter
     {
-        public static void Money(Graphics g, int moneyLblX0, int moneyLblY0, int moneyLblWidth, int delta)
+
+        public static void GrownAnimal(Graphics g)
+        { }
+
+        public static void GoneWildAnimal(Graphics g)
+        { }
+
+        public static void Money(Graphics g, int x0, int y0, int width, int delta)
         {
-            
-            g.DrawImage(Image.FromFile("money.png"), new Rectangle(new Point(moneyLblX0+moneyLblWidth, moneyLblY0), new Size(18/delta, 18/delta)));
+            g.DrawImage(Image.FromFile("money.png"), new Rectangle(new Point(x0+width, y0), new Size(18/delta, 18/delta)));
         }
 
-        public void Animal(string name)
+        public static void HomeAnimal(HomeAnimal.Names name, HomeAnimal.LifeStages lifeStage)
         { }
 
-        public void Grass(int length, int width)
+        public static void WildAnimal(WildAnimal.Names name)
         { }
+
+        public static  void Grass(Graphics g, int x0, int y0, int height, int width)
+        {
+            g.FillRectangle(new SolidBrush(Color.Green), new Rectangle(x0, y0, width, height));
+        }
     }
 }

@@ -9,9 +9,7 @@ namespace Game
     public interface Animal
     {
        bool Alive { get; set; }
-       bool Hungry { get; set; }
        string Name { get; set; }
-       
     }
 
 

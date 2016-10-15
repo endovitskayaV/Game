@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class WildAnimal : Animal
+    public class WildAnimal
     {
+        //fields
         public enum Names { wolf, fox, bear, boar};
-        public Dictionary<Names, int> energyCanEat = new Dictionary<Names, int>()
+        private Dictionary<Names, int> energyCanEat = new Dictionary<Names, int>()
         {
             {Names.wolf, 12},
             {Names.fox, 5},
@@ -17,23 +18,97 @@ namespace Game
             {Names.boar, 26}
         };
 
-        public bool Alive { get; set; }
-        public bool Hungry { get; set; }
-        public string Name { get; set; }
-        public bool Caught { get; set; }
-        public int MaxEaten { get; set; }
+        private bool alive;
+        private int calogiesEaten;
+        private Names name;
+        private bool caught;
+        private HomeAnimal currentEating;
 
+        //properties
+        public bool Alive
+        {
+            get
+            {
+                return alive;
+            }
+            set
+            {
+                alive = value;
+            }
+        }
+        public int caloriesEaten
+        {
+            get
+            {
+                return calogiesEaten;
+            }
+
+            set
+            {
+                calogiesEaten = value;
+            }
+        }
+        public Names Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+                
+        }
+        public bool Caught
+        {
+            get
+            {
+                return caught;
+            }
+            set
+            {
+                caught = value;
+            }
+        }
+        public HomeAnimal CurrentEating
+        {
+            get
+            {
+                return currentEating;
+            }
+
+            set
+            {
+                currentEating = value;
+            }
+        }
+        public int EnergyCanEat
+        {
+            get
+            {
+                return energyCanEat[name];
+            }
+        }
+        
+        //конструктор
         public WildAnimal(Names name)
         {
-            Name = name.ToString();
-            MaxEaten = energyCanEat[name];  
+            this.name = name;
+            alive = true;
+            Caught = false;
+            caloriesEaten = 0;
         }
 
+
+        //methods
         public void Eat(HomeAnimal homeAnimal)
         {
             homeAnimal.Alive = false;
         }
 
+       
 
 
     }
