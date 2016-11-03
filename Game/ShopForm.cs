@@ -24,8 +24,13 @@ namespace Game
         private CheckBox cock_ChBx;
         private CheckBox hen_ChBx;
         private CheckBox pig_ChBx;
-        private CheckBox rabit_ChBx;
         private CheckBox duck_ChBx;
+        private Label food_Lbl;
+        private Panel food_Panel;
+        private CheckBox cockF_ChBx;
+        private CheckBox henF_ChBx;
+        private CheckBox pigF_ChBx;
+        private CheckBox duckF_ChBx;
         private Label embryos_Lbl;
 
         public ShopForm()
@@ -47,11 +52,17 @@ namespace Game
             this.cock_ChBx = new System.Windows.Forms.CheckBox();
             this.hen_ChBx = new System.Windows.Forms.CheckBox();
             this.pig_ChBx = new System.Windows.Forms.CheckBox();
-            this.rabit_ChBx = new System.Windows.Forms.CheckBox();
             this.duck_ChBx = new System.Windows.Forms.CheckBox();
             this.moneyShow_Lbl = new System.Windows.Forms.Label();
+            this.food_Lbl = new System.Windows.Forms.Label();
+            this.food_Panel = new System.Windows.Forms.Panel();
+            this.cockF_ChBx = new System.Windows.Forms.CheckBox();
+            this.henF_ChBx = new System.Windows.Forms.CheckBox();
+            this.pigF_ChBx = new System.Windows.Forms.CheckBox();
+            this.duckF_ChBx = new System.Windows.Forms.CheckBox();
             this.traps_Panel.SuspendLayout();
             this.embryos_Panel.SuspendLayout();
+            this.food_Panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // traps_Lbl
@@ -119,9 +130,9 @@ namespace Game
             this.wolf_ChBx.AutoSize = true;
             this.wolf_ChBx.Location = new System.Drawing.Point(5, 28);
             this.wolf_ChBx.Name = "wolf_ChBx";
-            this.wolf_ChBx.Size = new System.Drawing.Size(63, 17);
+            this.wolf_ChBx.Size = new System.Drawing.Size(72, 17);
             this.wolf_ChBx.TabIndex = 15;
-            this.wolf_ChBx.Text = "wolf    7";
+            this.wolf_ChBx.Text = "wolf      7 ";
             this.wolf_ChBx.UseVisualStyleBackColor = true;
             // 
             // fox_ChBx
@@ -129,9 +140,9 @@ namespace Game
             this.fox_ChBx.AutoSize = true;
             this.fox_ChBx.Location = new System.Drawing.Point(5, 5);
             this.fox_ChBx.Name = "fox_ChBx";
-            this.fox_ChBx.Size = new System.Drawing.Size(61, 17);
+            this.fox_ChBx.Size = new System.Drawing.Size(73, 17);
             this.fox_ChBx.TabIndex = 15;
-            this.fox_ChBx.Text = "fox     5";
+            this.fox_ChBx.Text = "fox        5 ";
             this.fox_ChBx.UseVisualStyleBackColor = true;
             // 
             // embryos_Panel
@@ -139,18 +150,17 @@ namespace Game
             this.embryos_Panel.Controls.Add(this.cock_ChBx);
             this.embryos_Panel.Controls.Add(this.hen_ChBx);
             this.embryos_Panel.Controls.Add(this.pig_ChBx);
-            this.embryos_Panel.Controls.Add(this.rabit_ChBx);
             this.embryos_Panel.Controls.Add(this.duck_ChBx);
             this.embryos_Panel.Location = new System.Drawing.Point(131, 67);
             this.embryos_Panel.Name = "embryos_Panel";
-            this.embryos_Panel.Size = new System.Drawing.Size(90, 117);
+            this.embryos_Panel.Size = new System.Drawing.Size(90, 100);
             this.embryos_Panel.TabIndex = 13;
             this.embryos_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Embrys_Panel_Paint);
             // 
             // cock_ChBx
             // 
             this.cock_ChBx.AutoSize = true;
-            this.cock_ChBx.Location = new System.Drawing.Point(4, 95);
+            this.cock_ChBx.Location = new System.Drawing.Point(5, 74);
             this.cock_ChBx.Name = "cock_ChBx";
             this.cock_ChBx.Size = new System.Drawing.Size(65, 17);
             this.cock_ChBx.TabIndex = 15;
@@ -160,7 +170,7 @@ namespace Game
             // hen_ChBx
             // 
             this.hen_ChBx.AutoSize = true;
-            this.hen_ChBx.Location = new System.Drawing.Point(4, 72);
+            this.hen_ChBx.Location = new System.Drawing.Point(5, 51);
             this.hen_ChBx.Name = "hen_ChBx";
             this.hen_ChBx.Size = new System.Drawing.Size(65, 17);
             this.hen_ChBx.TabIndex = 15;
@@ -170,27 +180,17 @@ namespace Game
             // pig_ChBx
             // 
             this.pig_ChBx.AutoSize = true;
-            this.pig_ChBx.Location = new System.Drawing.Point(3, 49);
+            this.pig_ChBx.Location = new System.Drawing.Point(5, 28);
             this.pig_ChBx.Name = "pig_ChBx";
             this.pig_ChBx.Size = new System.Drawing.Size(64, 17);
             this.pig_ChBx.TabIndex = 15;
             this.pig_ChBx.Text = "pig      5";
             this.pig_ChBx.UseVisualStyleBackColor = true;
             // 
-            // rabit_ChBx
-            // 
-            this.rabit_ChBx.AutoSize = true;
-            this.rabit_ChBx.Location = new System.Drawing.Point(3, 26);
-            this.rabit_ChBx.Name = "rabit_ChBx";
-            this.rabit_ChBx.Size = new System.Drawing.Size(64, 17);
-            this.rabit_ChBx.TabIndex = 15;
-            this.rabit_ChBx.Text = "rabit    4";
-            this.rabit_ChBx.UseVisualStyleBackColor = true;
-            // 
             // duck_ChBx
             // 
             this.duck_ChBx.AutoSize = true;
-            this.duck_ChBx.Location = new System.Drawing.Point(3, 3);
+            this.duck_ChBx.Location = new System.Drawing.Point(4, 5);
             this.duck_ChBx.Name = "duck_ChBx";
             this.duck_ChBx.Size = new System.Drawing.Size(65, 17);
             this.duck_ChBx.TabIndex = 15;
@@ -206,9 +206,72 @@ namespace Game
             this.moneyShow_Lbl.TabIndex = 14;
             this.moneyShow_Lbl.Text = "0";
             // 
+            // food_Lbl
+            // 
+            this.food_Lbl.AutoSize = true;
+            this.food_Lbl.Location = new System.Drawing.Point(277, 41);
+            this.food_Lbl.Name = "food_Lbl";
+            this.food_Lbl.Size = new System.Drawing.Size(34, 13);
+            this.food_Lbl.TabIndex = 15;
+            this.food_Lbl.Text = "Food:";
+            // 
+            // food_Panel
+            // 
+            this.food_Panel.Controls.Add(this.cockF_ChBx);
+            this.food_Panel.Controls.Add(this.henF_ChBx);
+            this.food_Panel.Controls.Add(this.pigF_ChBx);
+            this.food_Panel.Controls.Add(this.duckF_ChBx);
+            this.food_Panel.Location = new System.Drawing.Point(254, 67);
+            this.food_Panel.Name = "food_Panel";
+            this.food_Panel.Size = new System.Drawing.Size(101, 100);
+            this.food_Panel.TabIndex = 16;
+            this.food_Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.food_Panel_Paint);
+            // 
+            // cockF_ChBx
+            // 
+            this.cockF_ChBx.AutoSize = true;
+            this.cockF_ChBx.Location = new System.Drawing.Point(5, 74);
+            this.cockF_ChBx.Name = "cockF_ChBx";
+            this.cockF_ChBx.Size = new System.Drawing.Size(71, 17);
+            this.cockF_ChBx.TabIndex = 4;
+            this.cockF_ChBx.Text = "cock   13";
+            this.cockF_ChBx.UseVisualStyleBackColor = true;
+            // 
+            // henF_ChBx
+            // 
+            this.henF_ChBx.AutoSize = true;
+            this.henF_ChBx.Location = new System.Drawing.Point(5, 51);
+            this.henF_ChBx.Name = "henF_ChBx";
+            this.henF_ChBx.Size = new System.Drawing.Size(71, 17);
+            this.henF_ChBx.TabIndex = 3;
+            this.henF_ChBx.Text = "hen     11";
+            this.henF_ChBx.UseVisualStyleBackColor = true;
+            // 
+            // pigF_ChBx
+            // 
+            this.pigF_ChBx.AutoSize = true;
+            this.pigF_ChBx.Location = new System.Drawing.Point(5, 28);
+            this.pigF_ChBx.Name = "pigF_ChBx";
+            this.pigF_ChBx.Size = new System.Drawing.Size(70, 17);
+            this.pigF_ChBx.TabIndex = 2;
+            this.pigF_ChBx.Text = "pig      15";
+            this.pigF_ChBx.UseVisualStyleBackColor = true;
+            // 
+            // duckF_ChBx
+            // 
+            this.duckF_ChBx.AutoSize = true;
+            this.duckF_ChBx.Location = new System.Drawing.Point(4, 5);
+            this.duckF_ChBx.Name = "duckF_ChBx";
+            this.duckF_ChBx.Size = new System.Drawing.Size(71, 17);
+            this.duckF_ChBx.TabIndex = 0;
+            this.duckF_ChBx.Text = "duck   12";
+            this.duckF_ChBx.UseVisualStyleBackColor = true;
+            // 
             // ShopForm
             // 
-            this.ClientSize = new System.Drawing.Size(230, 204);
+            this.ClientSize = new System.Drawing.Size(383, 204);
+            this.Controls.Add(this.food_Panel);
+            this.Controls.Add(this.food_Lbl);
             this.Controls.Add(this.moneyShow_Lbl);
             this.Controls.Add(this.embryos_Panel);
             this.Controls.Add(this.traps_Panel);
@@ -224,6 +287,8 @@ namespace Game
             this.traps_Panel.PerformLayout();
             this.embryos_Panel.ResumeLayout(false);
             this.embryos_Panel.PerformLayout();
+            this.food_Panel.ResumeLayout(false);
+            this.food_Panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,7 +311,6 @@ namespace Game
 
         private void Embrys_Panel_Paint(object sender, PaintEventArgs e)
         {
-            Painter.Money(e.Graphics, rabit_ChBx.Location.X, rabit_ChBx.Location.Y + 3, rabit_ChBx.Width, 2);
             Painter.Money(e.Graphics, duck_ChBx.Location.X, duck_ChBx.Location.Y + 3, duck_ChBx.Width, 2);
             Painter.Money(e.Graphics, pig_ChBx.Location.X, pig_ChBx.Location.Y + 3, pig_ChBx.Width, 2);
             Painter.Money(e.Graphics, hen_ChBx.Location.X, hen_ChBx.Location.Y + 3, hen_ChBx.Width, 2);
@@ -264,11 +328,18 @@ namespace Game
             if (bear_ChBx.Checked) { acquisitionValue += 20; chosenTraps.Add(new WildAnimal(WildAnimal.Names.bear)); }
             if (boar_ChBx.Checked) { acquisitionValue += 13; chosenTraps.Add(new WildAnimal(WildAnimal.Names.boar)); }
 
-            if (rabit_ChBx.Checked) { acquisitionValue += 4; chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.rabit)); }
             if (duck_ChBx.Checked) { acquisitionValue += 2;  chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.duck)); }
             if (pig_ChBx.Checked)  { acquisitionValue += 5;  chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.pig)); }
             if (hen_ChBx.Checked)  { acquisitionValue += 1;  chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.hen)); }
             if (cock_ChBx.Checked) { acquisitionValue += 3;  chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.cock)); }
+
+            //delete chosenEmbryons.Add(new Ho...
+            //add method frm HomeAnimal
+            if (duckF_ChBx.Checked) { acquisitionValue += 12; chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.duck)); }
+            if (pigF_ChBx.Checked) { acquisitionValue += 15; chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.pig)); }
+            if (henF_ChBx.Checked) { acquisitionValue += 11; chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.hen)); }
+            if (cockF_ChBx.Checked) { acquisitionValue += 13; chosenEmbryons.Add(new HomeAnimal(HomeAnimal.Names.cock)); }
+
 
 
             if (acquisitionValue <= 0) MessageBox.Show("Select you buyings!");
@@ -289,6 +360,14 @@ namespace Game
         private void ShopForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             MainForm.TimerStart();
+        }
+
+        private void food_Panel_Paint(object sender, PaintEventArgs e)
+        {
+            Painter.Money(e.Graphics, duckF_ChBx.Location.X, duckF_ChBx.Location.Y + 3, duckF_ChBx.Width, 2);
+            Painter.Money(e.Graphics, pigF_ChBx.Location.X, pigF_ChBx.Location.Y + 3, pigF_ChBx.Width, 2);
+            Painter.Money(e.Graphics, henF_ChBx.Location.X, henF_ChBx.Location.Y + 3, henF_ChBx.Width, 2);
+            Painter.Money(e.Graphics, cockF_ChBx.Location.X, cockF_ChBx.Location.Y + 3, cockF_ChBx.Width, 2);
         }
     }
 

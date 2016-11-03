@@ -17,12 +17,12 @@ namespace Game
 
         //load from mainForm
         public static List<WildAnimal> wildAnimals = new List<WildAnimal>();
+        public static List<WildAnimal> comingWildAnimals = new List<WildAnimal>();
         public static List<HomeAnimal> homeAnimals = new List<HomeAnimal> {
-            new HomeAnimal(HomeAnimal.Names.rabit),
-            new HomeAnimal(HomeAnimal.Names.rabit),
-            new HomeAnimal(HomeAnimal.Names.cock),
-            new HomeAnimal(HomeAnimal.Names.cock),
             new HomeAnimal(HomeAnimal.Names.hen),
+            new HomeAnimal(HomeAnimal.Names.hen),
+            new HomeAnimal(HomeAnimal.Names.cock),
+            new HomeAnimal(HomeAnimal.Names.cock),
             new HomeAnimal(HomeAnimal.Names.pig),
             new HomeAnimal(HomeAnimal.Names.duck)
         };
@@ -43,7 +43,20 @@ namespace Game
         {
             // если калори==0 или съел животного т е нет жертвы!!
             //caloriesEaten=1;
-            return HomeAnimal.Names.rabit; }
+            return HomeAnimal.Names.rabit;
+        }
+
+        public static void AddBoughtEmbryons()
+        {
+            for (int i = 0; i < embryosBought.Count; i++)
+            {
+                homeAnimals.Add(embryosBought[i]);
+            }
+        }
+
+        public static void AddBoughtTraps()
+        { }
+
 
 
     }

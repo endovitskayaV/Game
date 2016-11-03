@@ -23,6 +23,7 @@ namespace Game
             random = new Random();
             tickCount = 0;
 
+
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1000;
             timer.Tick += new EventHandler(Timer_Tick);
@@ -31,13 +32,17 @@ namespace Game
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+
+            timer.Stop();
            //raise money because homeAnimal is an adult
             for (int i = 0; i < GameValues.homeAnimals.Count; i++)
             {
                 if (GameValues.homeAnimals[i].LifeStage == HomeAnimal.LifeStages.adult)
                 {
                     GameValues.Money += GameValues.homeAnimals[i].Price;
-                    this.Refresh();// exit from method? 
+                    GameValues.homeAnimals.Remove(GameValues.homeAnimals[i]);
+
+                    this.Refresh();// exit from method?!!!!!!??????????? 
                 }
             }
 
@@ -70,8 +75,8 @@ namespace Game
             WildAnimal.Names[] wildAnimals = new WildAnimal.Names[] { WildAnimal.Names.bear, WildAnimal.Names.boar, WildAnimal.Names.fox, WildAnimal.Names.wolf };
             switch (tickCount)
             {
-                case 1: wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length+1)]));
-                     break;
+               // case 1: wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length+1)]));
+               //      break;
                 case 2:
                 case 3:
                     wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
@@ -115,8 +120,11 @@ namespace Game
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
+
+            Painter.MakeLayout();
+
             //grass
-            Painter.Grass(e.Graphics, 0,0, this.Height, this.Width);
+            Painter.Background(e.Graphics, 0,0, this.Height, this.Width);
 
             //money
             Painter.Money(e.Graphics, moneyShow_Lbl.Location.X, moneyShow_Lbl.Location.Y-3, moneyShow_Lbl.Width,1);
@@ -125,13 +133,13 @@ namespace Game
             // homeAnimals
             if (GameValues.homeAnimals.Count > 0)
                 for (int i = 0; i < GameValues.homeAnimals.Count; i++)
-                    Painter.HomeAnimal(GameValues.homeAnimals[i].Name, GameValues.homeAnimals[i].LifeStage);
+                    Painter.HomeAnimal(e.Graphics, GameValues.homeAnimals[i].Name, i);
             else MessageBox.Show("Game over!");
 
             //wildAnimals
             if (GameValues.wildAnimals.Count>0)
                 for (int i = 0; i < GameValues.wildAnimals.Count; i++)
-                    Painter.WildAnimal(GameValues.wildAnimals[i].Name);
+                    Painter.WildAnimal(e.Graphics, GameValues.wildAnimals[i].Name, i);
 
         }
 
@@ -139,6 +147,15 @@ namespace Game
         {
             timer.Start();
         }
-        
+
+        private void rules_Btn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("");
+        }
+
+        private void exit_Btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

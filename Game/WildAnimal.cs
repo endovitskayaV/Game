@@ -108,6 +108,8 @@ namespace Game
             homeAnimal.Alive = false;
         }
 
+        // кого поймать купленной ловушкой или это в game values
+
        
 
 
