@@ -21,6 +21,7 @@ namespace Game
 
         private Dictionary<Names, int> price = new Dictionary<Names, int>()
         {
+            {Names.rabit, 28},
             {Names.duck,8},
             {Names.pig, 14},
             {Names.cock, 4},

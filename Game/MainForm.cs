@@ -34,6 +34,10 @@ namespace Game
         {
 
             timer.Stop();
+
+
+
+
            //raise money because homeAnimal is an adult
             for (int i = 0; i < GameValues.homeAnimals.Count; i++)
             {
@@ -121,25 +125,25 @@ namespace Game
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
 
-            Painter.MakeLayout();
+            Painter.MakeLayout(this.Width, this.Height);
 
             //grass
-            Painter.Background(e.Graphics, 0,0, this.Height, this.Width);
+            Painter.DrawBackground(e.Graphics, 0,0, this.Height, this.Width);
 
             //money
-            Painter.Money(e.Graphics, moneyShow_Lbl.Location.X, moneyShow_Lbl.Location.Y-3, moneyShow_Lbl.Width,1);
+            Painter.DrawMoney(e.Graphics, moneyShow_Lbl.Location.X, moneyShow_Lbl.Location.Y-3, moneyShow_Lbl.Width,1);
             moneyShow_Lbl.Text = GameValues.Money.ToString();
 
             // homeAnimals
             if (GameValues.homeAnimals.Count > 0)
                 for (int i = 0; i < GameValues.homeAnimals.Count; i++)
-                    Painter.HomeAnimal(e.Graphics, GameValues.homeAnimals[i].Name, i);
+                    Painter.DrawHomeAnimal(e.Graphics, GameValues.homeAnimals[i].Name, i);
             else MessageBox.Show("Game over!");
 
             //wildAnimals
             if (GameValues.wildAnimals.Count>0)
                 for (int i = 0; i < GameValues.wildAnimals.Count; i++)
-                    Painter.WildAnimal(e.Graphics, GameValues.wildAnimals[i].Name, i);
+                    Painter.DrawWildAnimal(e.Graphics, GameValues.wildAnimals[i].Name, i);
 
         }
 

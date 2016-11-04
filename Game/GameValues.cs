@@ -17,14 +17,15 @@ namespace Game
 
         //load from mainForm
         public static List<WildAnimal> wildAnimals = new List<WildAnimal>();
-        public static List<WildAnimal> comingWildAnimals = new List<WildAnimal>();
+        public static List<WildAnimal> comingWildAnimals;// = new List<WildAnimal>();
         public static List<HomeAnimal> homeAnimals = new List<HomeAnimal> {
             new HomeAnimal(HomeAnimal.Names.hen),
             new HomeAnimal(HomeAnimal.Names.hen),
             new HomeAnimal(HomeAnimal.Names.cock),
             new HomeAnimal(HomeAnimal.Names.cock),
             new HomeAnimal(HomeAnimal.Names.pig),
-            new HomeAnimal(HomeAnimal.Names.duck)
+            new HomeAnimal(HomeAnimal.Names.duck),
+            new HomeAnimal(HomeAnimal.Names.rabit)
         };
 
         public static int Money
