@@ -22,7 +22,7 @@ namespace Game
         private int calogiesEaten;
         private Names name;
         private bool caught;
-        private HomeAnimal currentEating;
+        private HomeAnimal currentEatingHomeAnimal;
 
         //properties
         public bool Alive
@@ -72,16 +72,16 @@ namespace Game
                 caught = value;
             }
         }
-        public HomeAnimal CurrentEating
+        public HomeAnimal CurrentEatingHomeAnimal
         {
             get
             {
-                return currentEating;
+                return currentEatingHomeAnimal;
             }
 
             set
             {
-                currentEating = value;
+                currentEatingHomeAnimal = value;
             }
         }
         public int EnergyCanEat
@@ -99,6 +99,7 @@ namespace Game
             alive = true;
             Caught = false;
             caloriesEaten = 0;
+            currentEatingHomeAnimal = null;
         }
 
 

@@ -32,6 +32,7 @@ namespace Game
         private Names name;
         private bool alive;
         private int energyValue;
+        private WildAnimal hunter;
        
 
         //properties
@@ -78,7 +79,20 @@ namespace Game
                 return price[name];
             }
         }
-        
+        public WildAnimal Hunter
+        {
+            get
+            {
+                return hunter;
+            }
+
+            set
+            {
+                hunter = value;
+            }
+
+        }
+
 
         //конструктор
         public HomeAnimal(Names name)
@@ -87,6 +101,7 @@ namespace Game
             energyValue = energyWeight[name];
             lifeStage =LifeStages.baby;
             alive = true;
+            hunter = null;
         }
 
         //methods

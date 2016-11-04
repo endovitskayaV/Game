@@ -15,13 +15,15 @@ namespace Game
         private static Timer timer;
         private Random random;
         private int tickCount;
-        List<WildAnimal> wildAnimalsInGame;
+       private Graphics g;
 
         public MainForm()
         {
             InitializeComponent();
             random = new Random();
             tickCount = 0;
+            g = CreateGraphics();
+
 
 
             timer = new System.Windows.Forms.Timer();
@@ -32,12 +34,73 @@ namespace Game
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            tickCount++;
+
+            //set homeAnimal to wildAnomal
+            GameValues.SetFoodTo(GameValues.wildAnimals);
+
+
+            //-----------------------------------generate wild animals----------------------------------------------------//
+            GameValues.comingWildAnimals = new List<WildAnimal>();
+            WildAnimal.Names[] wildAnimals = new WildAnimal.Names[] { WildAnimal.Names.bear, WildAnimal.Names.boar, WildAnimal.Names.fox, WildAnimal.Names.wolf };
+            switch (tickCount)
+            {
+                case 1:
+                    GameValues.comingWildAnimals.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
+                    break;
+                case 2:
+                case 3:
+                    GameValues.comingWildAnimals.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
+                    GameValues.comingWildAnimals.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
+                    break;
+                case 4:
+                case 5:
+                    GameValues.comingWildAnimals.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
+                    GameValues.comingWildAnimals.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
+                    GameValues.comingWildAnimals.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
+                    GameValues.comingWildAnimals.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
+                    break;
+
+                default:
+                    for (int i = 0; i < tickCount; i++)
+                        GameValues.comingWildAnimals.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
+                    break;
+            }
+
+            //---------------------------------------------------------------------------------------------------------------------------//
+
+
+            //set homeAnimal to comingWildAnimal
+
+            // delete comingWildAnimals who did not get homeAnimal to eat
+            //from GameValues.comingWildAnimals list
+
+            GameValues.SetFoodTo(GameValues.comingWildAnimals);
+
+            for (int i = 0; i < GameValues.comingWildAnimals.Count; i++)
+            {
+                if (GameValues.comingWildAnimals[i].CurrentEatingHomeAnimal == null)
+                {
+                    GameValues.comingWildAnimals.RemoveRange(i, GameValues.comingWildAnimals.Count - i);
+                    break;
+                }
+            }
+
+            //Paint comingWildAnimals
+            int intervalNumber = this.Width / GameValues.comingWildAnimals.Count;
+            int y0=0;
+            for (int j = 1; j <= 4; j++)
+            {
+                for (int i = 0; i < GameValues.comingWildAnimals.Count; i++)
+                    Painter.DrawComingWildAnimal(g, GameValues.comingWildAnimals[i], this.Width, i, y0 + i * intervalNumber);
+            }
+           
+
+            //wildAnimalsInGame.AddRange(GameValues.wildAnimals);
+
 
             timer.Stop();
-
-
-
-
+           
            //raise money because homeAnimal is an adult
             for (int i = 0; i < GameValues.homeAnimals.Count; i++)
             {
@@ -46,66 +109,41 @@ namespace Game
                     GameValues.Money += GameValues.homeAnimals[i].Price;
                     GameValues.homeAnimals.Remove(GameValues.homeAnimals[i]);
 
-                    this.Refresh();// exit from method?!!!!!!??????????? 
+                   // перерисовать только homeAnimals
+                 this.Refresh();// exit from method?!!!!!!??????????? 
                 }
             }
+            
+            
 
-            tickCount++;
+           
 
-            //LifeStage++
-            if(tickCount!=1)
-            for (int i = 0; i < GameValues.homeAnimals.Count; i++) GameValues.homeAnimals[i].LifeStage++;
 
-            //set homeAnimal to wildAnomal
-            if (GameValues.wildAnimals.Count > 0) GameValues.SetFood();
+
+
+          
 
             //rise eaten calories
             for (int i = 0; i < GameValues.wildAnimals.Count; i++)
             {
                 if (GameValues.wildAnimals[i].caloriesEaten >= 1)
-                    GameValues.wildAnimals[i].caloriesEaten += (GameValues.wildAnimals[i].CurrentEating.EnergyValue/2)-1;
+                    GameValues.wildAnimals[i].caloriesEaten += (GameValues.wildAnimals[i].CurrentEatingHomeAnimal.EnergyValue/2)-1;
             }
 
             //killed?- доделать про мертвых непонятки наверняка 
             for (int i = 0; i < GameValues.wildAnimals.Count; i++)
             {
                 if (GameValues.wildAnimals[i].caloriesEaten == GameValues.wildAnimals[i].EnergyCanEat)
-                    GameValues.wildAnimals[i].Eat(GameValues.wildAnimals[i].CurrentEating);
+                    GameValues.wildAnimals[i].Eat(GameValues.wildAnimals[i].CurrentEatingHomeAnimal);
                 this.Refresh(); //exit?
             }
 
-            //-----------------------------------generate wild animals----------------------------------------------------//
-            wildAnimalsInGame = new List<WildAnimal>();
-            WildAnimal.Names[] wildAnimals = new WildAnimal.Names[] { WildAnimal.Names.bear, WildAnimal.Names.boar, WildAnimal.Names.fox, WildAnimal.Names.wolf };
-            switch (tickCount)
-            {
-               // case 1: wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length+1)]));
-               //      break;
-                case 2:
-                case 3:
-                    wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
-                    wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
-                    break;
-                case 4:
-                case 5:
-                    wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
-                    wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
-                    wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
-                    wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
-                    break;
 
-                default:
-                    for (int i = 0; i < tickCount; i++)
-                        wildAnimalsInGame.Add(new WildAnimal(wildAnimals[random.Next(0, wildAnimals.Length)]));
-                    break;
-            }
+            //LifeStage++
+            if (tickCount != 1)
+                for (int i = 0; i < GameValues.homeAnimals.Count; i++) GameValues.homeAnimals[i].LifeStage++;
 
-            wildAnimalsInGame.AddRange(GameValues.wildAnimals);
-
-           
-           //---------------------------------------------------------------------------------------------------------------------------//
-           
-
+          
 
             this.Refresh();
         }
@@ -138,12 +176,14 @@ namespace Game
             if (GameValues.homeAnimals.Count > 0)
                 for (int i = 0; i < GameValues.homeAnimals.Count; i++)
                     Painter.DrawHomeAnimal(e.Graphics, GameValues.homeAnimals[i].Name, i);
-            else MessageBox.Show("Game over!");
+            else { MessageBox.Show("Game over!"); g.Dispose(); }
 
-            //wildAnimals
-            if (GameValues.wildAnimals.Count>0)
+                //wildAnimals
+                if (GameValues.wildAnimals.Count>0)
                 for (int i = 0; i < GameValues.wildAnimals.Count; i++)
                     Painter.DrawWildAnimal(e.Graphics, GameValues.wildAnimals[i].Name, i);
+
+           // ePaintEventArg = e;
 
         }
 

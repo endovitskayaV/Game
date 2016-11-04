@@ -10,6 +10,7 @@ namespace Game
     class Painter
     {
 
+       
         private static int homeAnimalWidth = 50;
         private static int wildAnimalWidth = 50;
         private static int homeAnimalHeight = 50;
@@ -21,10 +22,35 @@ namespace Game
 
 
 
-        public static void DrawGoneWildAnimal(Graphics g, WildAnimal.Names name, int width)
+        public static void DrawComingWildAnimal(Graphics g, WildAnimal hunter, int width, int i, int y0)
         {
-            string fileName = name.ToString() + "Traces.png";
-            g.DrawImage(Image.FromFile(fileName),width-100,200,30,30);
+            int traceWidth = 30;
+            int traceHeight = 30;
+            int x0 = width - 100;
+           // int xRouteLength=x0-hunter.CurrentEatingHomeAnimal.
+            int yRouteLength;
+
+
+            string fileName = hunter.Name.ToString() + "Traces.png";
+
+            if (i == 1)
+            {
+                g.DrawImage(Image.FromFile(fileName), x0, y0, traceWidth, traceHeight);
+                g.DrawImage(Image.FromFile(fileName), x0 - traceWidth, y0, traceWidth, traceHeight);
+            }
+            else if (i == 2)
+            {
+                g.DrawImage(Image.FromFile(fileName), width - 100, y0, traceWidth, traceHeight);
+                g.DrawImage(Image.FromFile(fileName), width - 100 - traceWidth, y0, traceWidth, traceHeight);
+            }
+
+
+        }
+
+        public static void DrawWildAnimal(Graphics g, WildAnimal.Names name, int index)
+        {
+            string fileName = name.ToString() + ".png";
+            g.DrawImage(Image.FromFile(fileName), homeAnimalCoordinates[index].X, homeAnimalCoordinates[index].Y - wildAnimalHeight, wildAnimalWidth, wildAnimalHeight);
 
         }
 
@@ -37,14 +63,6 @@ namespace Game
         {
             string fileName = name.ToString() + ".png";
             g.DrawImage(Image.FromFile(fileName), homeAnimalCoordinates[index].X, homeAnimalCoordinates[index].Y, homeAnimalWidth, homeAnimalHeight); 
-        }
-
-        public static void DrawWildAnimal(Graphics g, WildAnimal.Names name, int index)
-        {
-            string fileName = name.ToString() + ".png";
-            g.DrawImage(Image.FromFile(fileName), homeAnimalCoordinates[index].X, homeAnimalCoordinates[index].Y-wildAnimalHeight, wildAnimalWidth, wildAnimalHeight);
-
-
         }
 
         public static void DrawBackground(Graphics g, int x0, int y0, int height, int width)

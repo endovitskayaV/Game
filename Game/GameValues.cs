@@ -40,11 +40,25 @@ namespace Game
             }
         }
 
-        public static HomeAnimal.Names SetFood()
+        public static void SetFoodTo(List<WildAnimal> huntersList)
         {
-            // если калори==0 или съел животного т е нет жертвы!!
-            //caloriesEaten=1;
-            return HomeAnimal.Names.rabit;
+            if (huntersList != null)
+            {
+
+                for (int i = 0; i < huntersList.Count; i++)// по всем huntersList
+                {
+                    for (int j = 0; j < homeAnimals.Count; j++)// по всем домашним животным
+                    {
+                        if (homeAnimals[j].Hunter == null) //если домашнего животного никто не ест
+                        {
+                            huntersList[i].CurrentEatingHomeAnimal = homeAnimals[j];
+                            homeAnimals[j].Hunter = huntersList[i];
+                            huntersList[i].caloriesEaten++;
+                        }
+                    }
+                    if (huntersList[i].CurrentEatingHomeAnimal == null) break;// если нет свободных жертв 
+                }
+            }
         }
 
         public static void AddBoughtEmbryons()
