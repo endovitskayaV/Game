@@ -22,6 +22,8 @@ namespace Game
 
 
 
+   
+
         public static void DrawComingWildAnimal(Graphics g, WildAnimal hunter, int width, int i, int y0)
         {
             int traceWidth = 30;
@@ -56,7 +58,7 @@ namespace Game
 
         public static void DrawMoney(Graphics g, int x0, int y0, int width, int deltaSize)
         {
-            g.DrawImage(Image.FromFile("money.png"), new Rectangle(new Point(x0 + width, y0), new Size(18 / deltaSize, 18 / deltaSize)));
+            g.DrawImage(Image.FromFile("money.png"), new Rectangle(new Point(x0 + width, y0), new Size(9*deltaSize, 9*deltaSize)));
         }
 
         public static void DrawHomeAnimal(Graphics g, HomeAnimal.Names name, int index)
@@ -67,8 +69,9 @@ namespace Game
 
         public static void DrawBackground(Graphics g, int x0, int y0, int height, int width)
         {
-            // g.DrawImage(Image.FromFile("grass.jpg"), new Rectangle(x0, y0, width, height));
-            g.FillRectangle(new SolidBrush(Color.FromArgb(245, 222, 179)), 0, 0, 160, height);//боковая левая панелька
+            g.DrawImage(Image.FromFile("back3.png"), new Rectangle(0, 0, width, height));
+            g.DrawImage(Image.FromFile("panel2.png"), new Rectangle(0, 0, 80, height));
+            //g.FillRectangle(new SolidBrush(Color.FromArgb(245, 222, 179)), 0, 0, 160, height);//боковая левая панелька
             //forest
             g.DrawImage(Image.FromFile("tree.png"), width - 130, 200, 200, 400);
             g.DrawImage(Image.FromFile("tree.png"), width-100,    0,  200, 400);

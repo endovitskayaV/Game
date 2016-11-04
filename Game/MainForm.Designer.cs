@@ -29,67 +29,62 @@
         private void InitializeComponent()
         {
             this.Shop_Btn = new System.Windows.Forms.Button();
-            this.moneyShow_Lbl = new System.Windows.Forms.Label();
-            this.byuings_Panel = new System.Windows.Forms.Panel();
             this.rules_Btn = new System.Windows.Forms.Button();
             this.exit_Btn = new System.Windows.Forms.Button();
+            this.money_Lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Shop_Btn
             // 
-            this.Shop_Btn.Location = new System.Drawing.Point(12, 4);
+            this.Shop_Btn.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Shop_Btn.FlatAppearance.BorderSize = 0;
+            this.Shop_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Shop_Btn.Location = new System.Drawing.Point(12, 110);
             this.Shop_Btn.Name = "Shop_Btn";
-            this.Shop_Btn.Size = new System.Drawing.Size(43, 23);
+            this.Shop_Btn.Size = new System.Drawing.Size(55, 55);
             this.Shop_Btn.TabIndex = 0;
-            this.Shop_Btn.Text = "Shop";
             this.Shop_Btn.UseVisualStyleBackColor = true;
             this.Shop_Btn.Click += new System.EventHandler(this.Shop_Btn_Click);
             // 
-            // moneyShow_Lbl
-            // 
-            this.moneyShow_Lbl.AutoSize = true;
-            this.moneyShow_Lbl.Location = new System.Drawing.Point(76, 9);
-            this.moneyShow_Lbl.Name = "moneyShow_Lbl";
-            this.moneyShow_Lbl.Size = new System.Drawing.Size(13, 13);
-            this.moneyShow_Lbl.TabIndex = 1;
-            this.moneyShow_Lbl.Text = "0";
-            // 
-            // byuings_Panel
-            // 
-            this.byuings_Panel.Location = new System.Drawing.Point(40, 126);
-            this.byuings_Panel.Name = "byuings_Panel";
-            this.byuings_Panel.Size = new System.Drawing.Size(36, 19);
-            this.byuings_Panel.TabIndex = 2;
-            // 
             // rules_Btn
             // 
-            this.rules_Btn.Location = new System.Drawing.Point(12, 33);
+            this.rules_Btn.FlatAppearance.BorderSize = 0;
+            this.rules_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rules_Btn.Location = new System.Drawing.Point(12, 171);
             this.rules_Btn.Name = "rules_Btn";
-            this.rules_Btn.Size = new System.Drawing.Size(43, 23);
+            this.rules_Btn.Size = new System.Drawing.Size(55, 55);
             this.rules_Btn.TabIndex = 3;
-            this.rules_Btn.Text = "Rules";
             this.rules_Btn.UseVisualStyleBackColor = true;
             this.rules_Btn.Click += new System.EventHandler(this.rules_Btn_Click);
             // 
             // exit_Btn
             // 
-            this.exit_Btn.Location = new System.Drawing.Point(13, 63);
+            this.exit_Btn.FlatAppearance.BorderSize = 0;
+            this.exit_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit_Btn.Location = new System.Drawing.Point(21, 12);
             this.exit_Btn.Name = "exit_Btn";
-            this.exit_Btn.Size = new System.Drawing.Size(42, 23);
+            this.exit_Btn.Size = new System.Drawing.Size(23, 23);
             this.exit_Btn.TabIndex = 4;
-            this.exit_Btn.Text = "Exit";
             this.exit_Btn.UseVisualStyleBackColor = true;
             this.exit_Btn.Click += new System.EventHandler(this.exit_Btn_Click);
+            // 
+            // money_Lbl
+            // 
+            this.money_Lbl.AutoSize = true;
+            this.money_Lbl.Location = new System.Drawing.Point(31, 96);
+            this.money_Lbl.Name = "money_Lbl";
+            this.money_Lbl.Size = new System.Drawing.Size(13, 13);
+            this.money_Lbl.TabIndex = 5;
+            this.money_Lbl.Text = "0";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.money_Lbl);
             this.Controls.Add(this.exit_Btn);
             this.Controls.Add(this.rules_Btn);
-            this.Controls.Add(this.byuings_Panel);
-            this.Controls.Add(this.moneyShow_Lbl);
             this.Controls.Add(this.Shop_Btn);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -105,10 +100,9 @@
         #endregion
 
         private System.Windows.Forms.Button Shop_Btn;
-        private System.Windows.Forms.Label moneyShow_Lbl;
-        private System.Windows.Forms.Panel byuings_Panel;
         private System.Windows.Forms.Button rules_Btn;
         private System.Windows.Forms.Button exit_Btn;
+        private System.Windows.Forms.Label money_Lbl;
     }
 }
 

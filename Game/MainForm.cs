@@ -23,6 +23,7 @@ namespace Game
             random = new Random();
             tickCount = 0;
             g = CreateGraphics();
+           
 
 
 
@@ -87,14 +88,16 @@ namespace Game
             }
 
             //Paint comingWildAnimals
-            int intervalNumber = this.Width / GameValues.comingWildAnimals.Count;
-            int y0=0;
-            for (int j = 1; j <= 4; j++)
+            if (GameValues.comingWildAnimals.Count != 0)
             {
-                for (int i = 0; i < GameValues.comingWildAnimals.Count; i++)
-                    Painter.DrawComingWildAnimal(g, GameValues.comingWildAnimals[i], this.Width, i, y0 + i * intervalNumber);
+                int intervalNumber = this.Width / GameValues.comingWildAnimals.Count;
+                int y0 = 0;
+                for (int j = 1; j <= 4; j++)
+                {
+                    for (int i = 0; i < GameValues.comingWildAnimals.Count; i++)
+                        Painter.DrawComingWildAnimal(g, GameValues.comingWildAnimals[i], this.Width, i, y0 + i * intervalNumber);
+                }
             }
-           
 
             //wildAnimalsInGame.AddRange(GameValues.wildAnimals);
 
@@ -169,8 +172,37 @@ namespace Game
             Painter.DrawBackground(e.Graphics, 0,0, this.Height, this.Width);
 
             //money
-            Painter.DrawMoney(e.Graphics, moneyShow_Lbl.Location.X, moneyShow_Lbl.Location.Y-3, moneyShow_Lbl.Width,1);
-            moneyShow_Lbl.Text = GameValues.Money.ToString();
+            Painter.DrawMoney(e.Graphics, 15,35+15, 0,5);
+            money_Lbl.Text = GameValues.Money.ToString();
+            money_Lbl.BackColor = Color.FromArgb(164, 221, 99);
+           
+
+            //Shop_Btn.Image
+            Shop_Btn.BackColor = Color.FromArgb(164, 221, 99);
+            Shop_Btn.Image = Image.FromFile("shop2.png");
+            Shop_Btn.FlatAppearance.MouseDownBackColor= Color.FromArgb(164, 221, 99);
+            Shop_Btn.FlatAppearance.MouseOverBackColor= Color.FromArgb(164, 221, 99);
+            Shop_Btn.FlatAppearance.BorderColor= Color.FromArgb(164, 221, 99);
+
+
+
+            //exit_Btn
+            exit_Btn.Image= Image.FromFile("exit2.png");
+            exit_Btn.BackColor = Color.FromArgb(164, 221, 99);
+            exit_Btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(164, 221, 99);
+            exit_Btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(164, 221, 99);
+            exit_Btn.FlatAppearance.BorderColor = Color.FromArgb(164, 221, 99);
+
+            //rules_Btn
+
+            rules_Btn.Image = Image.FromFile("rules2.png");
+            rules_Btn.BackColor = Color.FromArgb(164, 221, 99);
+            rules_Btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(164, 221, 99);
+            rules_Btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(164, 221, 99);
+            rules_Btn.FlatAppearance.BorderColor = Color.FromArgb(164, 221, 99);
+
+
+
 
             // homeAnimals
             if (GameValues.homeAnimals.Count > 0)

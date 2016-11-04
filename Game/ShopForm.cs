@@ -298,23 +298,23 @@ namespace Game
         {
             moneyShow_Lbl.Text = GameValues.Money.ToString();
 
-            Painter.DrawMoney(e.Graphics, moneyShow_Lbl.Location.X, moneyShow_Lbl.Location.Y, moneyShow_Lbl.Width, 1);
+            Painter.DrawMoney(e.Graphics, moneyShow_Lbl.Location.X, moneyShow_Lbl.Location.Y, moneyShow_Lbl.Width, 2);
         }
         
         private void Traps_Panel_paint(object sender, PaintEventArgs e)
         {
-            Painter.DrawMoney(e.Graphics, fox_ChBx.Location.X, fox_ChBx.Location.Y + 3, fox_ChBx.Size.Width, 2);
-            Painter.DrawMoney(e.Graphics, wolf_ChBx.Location.X, wolf_ChBx.Location.Y + 3, wolf_ChBx.Width, 2);
-            Painter.DrawMoney(e.Graphics, bear_ChBx.Location.X, bear_ChBx.Location.Y + 3, bear_ChBx.Width, 2);
-            Painter.DrawMoney(e.Graphics, boar_ChBx.Location.X, boar_ChBx.Location.Y + 3, boar_ChBx.Width, 2);
+            Painter.DrawMoney(e.Graphics, fox_ChBx.Location.X, fox_ChBx.Location.Y + 3, fox_ChBx.Size.Width, 1);
+            Painter.DrawMoney(e.Graphics, wolf_ChBx.Location.X, wolf_ChBx.Location.Y + 3, wolf_ChBx.Width, 1);
+            Painter.DrawMoney(e.Graphics, bear_ChBx.Location.X, bear_ChBx.Location.Y + 3, bear_ChBx.Width, 1);
+            Painter.DrawMoney(e.Graphics, boar_ChBx.Location.X, boar_ChBx.Location.Y + 3, boar_ChBx.Width, 1);
         }
 
         private void Embrys_Panel_Paint(object sender, PaintEventArgs e)
         {
-            Painter.DrawMoney(e.Graphics, duck_ChBx.Location.X, duck_ChBx.Location.Y + 3, duck_ChBx.Width, 2);
-            Painter.DrawMoney(e.Graphics, pig_ChBx.Location.X, pig_ChBx.Location.Y + 3, pig_ChBx.Width, 2);
-            Painter.DrawMoney(e.Graphics, hen_ChBx.Location.X, hen_ChBx.Location.Y + 3, hen_ChBx.Width, 2);
-            Painter.DrawMoney(e.Graphics, cock_ChBx.Location.X, cock_ChBx.Location.Y + 3, cock_ChBx.Width, 2);
+            Painter.DrawMoney(e.Graphics, duck_ChBx.Location.X, duck_ChBx.Location.Y + 3, duck_ChBx.Width, 1);
+            Painter.DrawMoney(e.Graphics, pig_ChBx.Location.X, pig_ChBx.Location.Y + 3, pig_ChBx.Width, 1);
+            Painter.DrawMoney(e.Graphics, hen_ChBx.Location.X, hen_ChBx.Location.Y + 3, hen_ChBx.Width, 1);
+            Painter.DrawMoney(e.Graphics, cock_ChBx.Location.X, cock_ChBx.Location.Y + 3, cock_ChBx.Width, 1);
         }
 
         private void buy_Btn_Click(object sender, EventArgs e)
@@ -364,10 +364,10 @@ namespace Game
 
         private void food_Panel_Paint(object sender, PaintEventArgs e)
         {
-            Painter.DrawMoney(e.Graphics, duckF_ChBx.Location.X, duckF_ChBx.Location.Y + 3, duckF_ChBx.Width, 2);
-            Painter.DrawMoney(e.Graphics, pigF_ChBx.Location.X, pigF_ChBx.Location.Y + 3, pigF_ChBx.Width, 2);
-            Painter.DrawMoney(e.Graphics, henF_ChBx.Location.X, henF_ChBx.Location.Y + 3, henF_ChBx.Width, 2);
-            Painter.DrawMoney(e.Graphics, cockF_ChBx.Location.X, cockF_ChBx.Location.Y + 3, cockF_ChBx.Width, 2);
+            Painter.DrawMoney(e.Graphics, duckF_ChBx.Location.X, duckF_ChBx.Location.Y + 3, duckF_ChBx.Width, 1);
+            Painter.DrawMoney(e.Graphics, pigF_ChBx.Location.X, pigF_ChBx.Location.Y + 3, pigF_ChBx.Width, 1);
+            Painter.DrawMoney(e.Graphics, henF_ChBx.Location.X, henF_ChBx.Location.Y + 3, henF_ChBx.Width, 1);
+            Painter.DrawMoney(e.Graphics, cockF_ChBx.Location.X, cockF_ChBx.Location.Y + 3, cockF_ChBx.Width, 1);
         }
     }
 
