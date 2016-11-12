@@ -45,6 +45,7 @@
             this.Shop_Btn.TabIndex = 0;
             this.Shop_Btn.UseVisualStyleBackColor = true;
             this.Shop_Btn.Click += new System.EventHandler(this.Shop_Btn_Click);
+            this.Shop_Btn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Shop_Btn_MouseMove);
             // 
             // rules_Btn
             // 
@@ -56,6 +57,8 @@
             this.rules_Btn.TabIndex = 3;
             this.rules_Btn.UseVisualStyleBackColor = true;
             this.rules_Btn.Click += new System.EventHandler(this.rules_Btn_Click);
+            this.rules_Btn.MouseLeave += new System.EventHandler(this.rules_Btn_MouseLeave);
+            this.rules_Btn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.rules_Btn_MouseMove);
             // 
             // exit_Btn
             // 
@@ -67,6 +70,8 @@
             this.exit_Btn.TabIndex = 4;
             this.exit_Btn.UseVisualStyleBackColor = true;
             this.exit_Btn.Click += new System.EventHandler(this.exit_Btn_Click);
+            this.exit_Btn.MouseLeave += new System.EventHandler(this.exit_Btn_MouseLeave);
+            this.exit_Btn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.exit_Btn_MouseMove);
             // 
             // money_Lbl
             // 

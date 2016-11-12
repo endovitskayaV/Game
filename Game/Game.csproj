@@ -53,6 +53,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ShopForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +68,9 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RulesForm.resx">
+      <DependentUpon>RulesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ShopForm.resx">
       <DependentUpon>ShopForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -89,6 +96,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

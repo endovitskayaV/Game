@@ -31,6 +31,7 @@ namespace Game
         private CheckBox henF_ChBx;
         private CheckBox pigF_ChBx;
         private CheckBox duckF_ChBx;
+        private Button exit_Btn;
         private Label embryos_Lbl;
 
         public ShopForm()
@@ -60,6 +61,7 @@ namespace Game
             this.henF_ChBx = new System.Windows.Forms.CheckBox();
             this.pigF_ChBx = new System.Windows.Forms.CheckBox();
             this.duckF_ChBx = new System.Windows.Forms.CheckBox();
+            this.exit_Btn = new System.Windows.Forms.Button();
             this.traps_Panel.SuspendLayout();
             this.embryos_Panel.SuspendLayout();
             this.food_Panel.SuspendLayout();
@@ -68,7 +70,7 @@ namespace Game
             // traps_Lbl
             // 
             this.traps_Lbl.AutoSize = true;
-            this.traps_Lbl.Location = new System.Drawing.Point(41, 41);
+            this.traps_Lbl.Location = new System.Drawing.Point(131, 113);
             this.traps_Lbl.Name = "traps_Lbl";
             this.traps_Lbl.Size = new System.Drawing.Size(37, 13);
             this.traps_Lbl.TabIndex = 9;
@@ -77,7 +79,7 @@ namespace Game
             // embryos_Lbl
             // 
             this.embryos_Lbl.AutoSize = true;
-            this.embryos_Lbl.Location = new System.Drawing.Point(149, 41);
+            this.embryos_Lbl.Location = new System.Drawing.Point(212, 113);
             this.embryos_Lbl.Name = "embryos_Lbl";
             this.embryos_Lbl.Size = new System.Drawing.Size(50, 13);
             this.embryos_Lbl.TabIndex = 10;
@@ -85,13 +87,19 @@ namespace Game
             // 
             // buy_Btn
             // 
-            this.buy_Btn.Location = new System.Drawing.Point(12, 175);
+            this.buy_Btn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.buy_Btn.FlatAppearance.BorderSize = 0;
+            this.buy_Btn.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.buy_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.buy_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buy_Btn.Location = new System.Drawing.Point(215, 242);
             this.buy_Btn.Name = "buy_Btn";
-            this.buy_Btn.Size = new System.Drawing.Size(75, 23);
+            this.buy_Btn.Size = new System.Drawing.Size(33, 30);
             this.buy_Btn.TabIndex = 11;
-            this.buy_Btn.Text = "Buy";
             this.buy_Btn.UseVisualStyleBackColor = true;
             this.buy_Btn.Click += new System.EventHandler(this.buy_Btn_Click);
+            this.buy_Btn.MouseLeave += new System.EventHandler(this.buy_Btn_MouseLeave);
+            this.buy_Btn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.buy_Btn_MouseMove);
             // 
             // traps_Panel
             // 
@@ -99,7 +107,7 @@ namespace Game
             this.traps_Panel.Controls.Add(this.bear_ChBx);
             this.traps_Panel.Controls.Add(this.wolf_ChBx);
             this.traps_Panel.Controls.Add(this.fox_ChBx);
-            this.traps_Panel.Location = new System.Drawing.Point(12, 67);
+            this.traps_Panel.Location = new System.Drawing.Point(102, 136);
             this.traps_Panel.Name = "traps_Panel";
             this.traps_Panel.Size = new System.Drawing.Size(94, 100);
             this.traps_Panel.TabIndex = 12;
@@ -151,7 +159,7 @@ namespace Game
             this.embryos_Panel.Controls.Add(this.hen_ChBx);
             this.embryos_Panel.Controls.Add(this.pig_ChBx);
             this.embryos_Panel.Controls.Add(this.duck_ChBx);
-            this.embryos_Panel.Location = new System.Drawing.Point(131, 67);
+            this.embryos_Panel.Location = new System.Drawing.Point(202, 136);
             this.embryos_Panel.Name = "embryos_Panel";
             this.embryos_Panel.Size = new System.Drawing.Size(90, 100);
             this.embryos_Panel.TabIndex = 13;
@@ -200,7 +208,8 @@ namespace Game
             // moneyShow_Lbl
             // 
             this.moneyShow_Lbl.AutoSize = true;
-            this.moneyShow_Lbl.Location = new System.Drawing.Point(12, 13);
+            this.moneyShow_Lbl.ForeColor = System.Drawing.Color.White;
+            this.moneyShow_Lbl.Location = new System.Drawing.Point(25, 18);
             this.moneyShow_Lbl.Name = "moneyShow_Lbl";
             this.moneyShow_Lbl.Size = new System.Drawing.Size(13, 13);
             this.moneyShow_Lbl.TabIndex = 14;
@@ -209,7 +218,7 @@ namespace Game
             // food_Lbl
             // 
             this.food_Lbl.AutoSize = true;
-            this.food_Lbl.Location = new System.Drawing.Point(277, 41);
+            this.food_Lbl.Location = new System.Drawing.Point(329, 113);
             this.food_Lbl.Name = "food_Lbl";
             this.food_Lbl.Size = new System.Drawing.Size(34, 13);
             this.food_Lbl.TabIndex = 15;
@@ -221,7 +230,7 @@ namespace Game
             this.food_Panel.Controls.Add(this.henF_ChBx);
             this.food_Panel.Controls.Add(this.pigF_ChBx);
             this.food_Panel.Controls.Add(this.duckF_ChBx);
-            this.food_Panel.Location = new System.Drawing.Point(254, 67);
+            this.food_Panel.Location = new System.Drawing.Point(298, 136);
             this.food_Panel.Name = "food_Panel";
             this.food_Panel.Size = new System.Drawing.Size(101, 100);
             this.food_Panel.TabIndex = 16;
@@ -260,16 +269,31 @@ namespace Game
             // duckF_ChBx
             // 
             this.duckF_ChBx.AutoSize = true;
-            this.duckF_ChBx.Location = new System.Drawing.Point(4, 5);
+            this.duckF_ChBx.Location = new System.Drawing.Point(5, 5);
             this.duckF_ChBx.Name = "duckF_ChBx";
             this.duckF_ChBx.Size = new System.Drawing.Size(71, 17);
             this.duckF_ChBx.TabIndex = 0;
             this.duckF_ChBx.Text = "duck   12";
             this.duckF_ChBx.UseVisualStyleBackColor = true;
             // 
+            // exit_Btn
+            // 
+            this.exit_Btn.FlatAppearance.BorderSize = 0;
+            this.exit_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exit_Btn.Location = new System.Drawing.Point(455, 13);
+            this.exit_Btn.Margin = new System.Windows.Forms.Padding(0);
+            this.exit_Btn.Name = "exit_Btn";
+            this.exit_Btn.Size = new System.Drawing.Size(23, 23);
+            this.exit_Btn.TabIndex = 17;
+            this.exit_Btn.UseVisualStyleBackColor = true;
+            this.exit_Btn.Click += new System.EventHandler(this.exit_Btn_Click);
+            this.exit_Btn.MouseLeave += new System.EventHandler(this.exit_Btn_MouseLeave);
+            this.exit_Btn.MouseMove += new System.Windows.Forms.MouseEventHandler(this.exit_Btn_MouseMove);
+            // 
             // ShopForm
             // 
-            this.ClientSize = new System.Drawing.Size(383, 204);
+            this.ClientSize = new System.Drawing.Size(499, 379);
+            this.Controls.Add(this.exit_Btn);
             this.Controls.Add(this.food_Panel);
             this.Controls.Add(this.food_Lbl);
             this.Controls.Add(this.moneyShow_Lbl);
@@ -278,11 +302,13 @@ namespace Game
             this.Controls.Add(this.buy_Btn);
             this.Controls.Add(this.embryos_Lbl);
             this.Controls.Add(this.traps_Lbl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ShopForm";
-            this.Text = "Shop";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ShopForm_FormClosed);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ShopForm_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ShopForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ShopForm_MouseMove);
             this.traps_Panel.ResumeLayout(false);
             this.traps_Panel.PerformLayout();
             this.embryos_Panel.ResumeLayout(false);
@@ -296,9 +322,22 @@ namespace Game
 
         private void ShopForm_Paint(object sender, PaintEventArgs e)
         {
-            moneyShow_Lbl.Text = GameValues.Money.ToString();
+            Painter.DrawShopFormBackground(e.Graphics, this.Height, this.Width);
 
+            moneyShow_Lbl.BackColor = Color.FromArgb(20, 20, 20);
+            moneyShow_Lbl.Text = GameValues.Money.ToString();
             Painter.DrawMoney(e.Graphics, moneyShow_Lbl.Location.X, moneyShow_Lbl.Location.Y, moneyShow_Lbl.Width, 2);
+          
+            //exit_Btn
+            exit_Btn.Image = Image.FromFile("exit2.png");
+            exit_Btn.BackColor = Color.FromArgb(20,20,20);
+            exit_Btn.FlatAppearance.MouseDownBackColor = Color.FromArgb(20, 20, 20);
+            exit_Btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(20, 20, 20);
+            exit_Btn.FlatAppearance.BorderColor = Color.FromArgb(20, 20, 20);
+
+            buy_Btn.Image = Image.FromFile("buy2.png");
+           
+
         }
         
         private void Traps_Panel_paint(object sender, PaintEventArgs e)
@@ -368,6 +407,49 @@ namespace Game
             Painter.DrawMoney(e.Graphics, pigF_ChBx.Location.X, pigF_ChBx.Location.Y + 3, pigF_ChBx.Width, 1);
             Painter.DrawMoney(e.Graphics, henF_ChBx.Location.X, henF_ChBx.Location.Y + 3, henF_ChBx.Width, 1);
             Painter.DrawMoney(e.Graphics, cockF_ChBx.Location.X, cockF_ChBx.Location.Y + 3, cockF_ChBx.Width, 1);
+        }
+
+        private void exit_Btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void exit_Btn_MouseLeave(object sender, EventArgs e)
+        {
+            exit_Btn.Image = Image.FromFile("exit2.png");
+        }
+
+        private void exit_Btn_MouseMove(object sender, MouseEventArgs e)
+        {
+            exit_Btn.Image = Image.FromFile("exit3.png");
+        }
+
+        private void buy_Btn_MouseLeave(object sender, EventArgs e)
+        {
+            buy_Btn.Image = Image.FromFile("buy2.png");
+        }
+
+        private void buy_Btn_MouseMove(object sender, MouseEventArgs e)
+        {
+            buy_Btn.Image = Image.FromFile("buy3.png");
+        }
+
+        private int iFormX, iFormY, iMouseX, iMouseY;
+        private void ShopForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            iFormX = this.Location.X;
+            iFormY = this.Location.Y;
+            iMouseX = MousePosition.X;
+            iMouseY = MousePosition.Y;
+        }
+
+        private void ShopForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            int iMouseX2 = MousePosition.X;
+            int iMouseY2 = MousePosition.Y;
+            if (e.Button == MouseButtons.Left)
+                this.Location = new Point(iFormX + (iMouseX2 - iMouseX), iFormY + (iMouseY2 - iMouseY));
+
         }
     }
 

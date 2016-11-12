@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Game
 {
@@ -17,7 +18,7 @@ namespace Game
 
         //load from mainForm
         public static List<WildAnimal> wildAnimals = new List<WildAnimal>();
-        public static List<WildAnimal> comingWildAnimals;// = new List<WildAnimal>();
+        public static List<WildAnimal> comingWildAnimals= new List<WildAnimal>();
         public static List<HomeAnimal> homeAnimals = new List<HomeAnimal> {
             new HomeAnimal(HomeAnimal.Names.hen),
             new HomeAnimal(HomeAnimal.Names.hen),
@@ -49,14 +50,19 @@ namespace Game
                 {
                     for (int j = 0; j < homeAnimals.Count; j++)// по всем домашним животным
                     {
-                        if (homeAnimals[j].Hunter == null) //если домашнего животного никто не ест
-                        {
+                        if (homeAnimals[j].Hunter == null && huntersList[i].CurrentEatingHomeAnimal==null) //если домашнего животного никто не ест
+                        {                                                                                  // и у дикого нет еды
                             huntersList[i].CurrentEatingHomeAnimal = homeAnimals[j];
                             homeAnimals[j].Hunter = huntersList[i];
+                            huntersList[i].Destination = homeAnimals[j].Position;   
                             huntersList[i].caloriesEaten++;
                         }
                     }
-                    if (huntersList[i].CurrentEatingHomeAnimal == null) break;// если нет свободных жертв 
+                    if (huntersList[i].CurrentEatingHomeAnimal == null)// если нет свободных жертв 
+                    {
+                        huntersList[i].Destination = new Point(0, 0);
+                        huntersList[i].CurrentEatingHomeAnimal = null; 
+                    }
                 }
             }
         }
